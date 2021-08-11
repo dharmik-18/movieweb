@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root{
+   --darkbgcolor:#10110f; 
+   --navbg: #10110f;
+   --navbox: rgb(104, 100, 100);
+   --shadow: #FF0A60;
+   --navmenu:#DB3535;
+   --search: #37393a;
+   --heading: #fafafa;
+   --navlink: #e1f5fe;
+   --navlinkbg: #37393a;
+   --navlinkshadow: #1f1d1d;
+   --contentbg: rgba(228, 39, 49, 0.7);
+   --contentbefore: #ee1225;
+}
+body{
+   margin: 0;
+   padding: 0;
+   font-family: 'Poppins', sans-serif;
+   background-color: var(--darkbgcolor);
+}
+*{
+   box-sizing: border-box;
+}
+ul{
+   list-style: none;
+}
+a{
+   text-decoration: none;
+}
+img{
+   cursor: pointer;
+}
+nav{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   background:var(--navbg);
+   position: fixed;
+   left: 0;
+   top:0;
+   box-shadow: 0px 1px 4px var(--navbox);
+   z-index: 100;
+}
+.logo img{
+   height: 40px;
+}
+nav .menu{
+   display: flex;
+}
+nav .menu li a{
+   height: 40px;
+   line-height: 43px;
+   margin:0;
+   padding: 0 22px;
+   display: flex;
+   font-size: 0.8rem;
+   text-transform: uppercase;
+   color: #646464;
+   letter-spacing: 1px;
+   font-weight: 700;
+}
+.search{
+   width: 400px;
+   height: 40px;
+   background-color: var(--search);
+   box-shadow: 0px 1px 2px #8b8888;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 20px;
+   padding: 0 20px;
+ 
+}
+.search:hover{
+   box-shadow: 1px 2px 3px rgba(185, 183, 183, 0.911);
+
+}
+.search input{
+   width: 100%;
+   height: 30px;
+   border: none;
+   outline: none;
+   background-color: transparent;
+   caret-color: #dde4e7;
+   color: #e1f5fe;
+   letter-spacing: 1px;
+}.search input::placeholder{
+   color: rgb(250, 250, 250);
+}
+.search i{
+   color: #00b0ff;
+}
+
+.close {
+   color: grey;
+   padding-right:8px;
+   cursor: pointer;
+   font-size: 1.4rem;
+   display: none;
+}
+
+
+/* this for search items---------------------*/
+
+.search-item{
+   background: #fff;
+   border-radius: 10px ;
+   margin: 1rem;
+height: 300px;
+position: relative;
+   box-shadow: 2px 2px 15px rgba(0,0,0,.4);
+   overflow: hidden;
+   cursor: pointer;
+}
+.search-item img{
+width: 100%;
+height: 100%;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+
+}
+.body{
+   display: grid;
+   width: 100%;
+   grid-template-columns: repeat(auto-fit,minmax(250px,300px));
+   margin: 0 1rem;
+justify-content: center;
+align-items: center;
+margin-top:100px;
+}
+
+.menu .active{
+   background-color: var(--navlinkbg);
+   color: var(--navlink) !important;
+   box-shadow: 2px 2px 5px var(--navlinkshadow);
+  
+}
+
+
+nav .menu  li a:hover{
+   background-color: #171718;
+   color: #fff;
+   box-shadow: 5px 5px 3px rgba(201, 195, 195, 0.1);
+   transition: all ease-in-out 0.2s;
+}
+#main{
+   padding-top: 80px;
+   background-color: var(--darkbgcolor);
+}
+.showcase-box ,.showcase-tv-box{
+width: 400px;
+height: 250px;
+position: relative;
+border-radius: 10px;
+margin:  0 20px 10px 20px;
+overflow: hidden;
+border: 1px solid #252525;
+cursor: pointer;
+}
+.showcase-box img,.showcase-tv-box img{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+}
+.showcase-heading,.trending-heading{
+   padding-left: 30px;
+   font-weight: 700;
+
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   font-size: 1.3rem;
+   color: var(--heading);
+}
+.showcase-box:before,.latest-box::before,.movie-boxs::before,.top-rated-box::before,.showcase-tv-box::before,.latest-tv-box::before,.movie-tv-boxs::before,.top-rated-tv-box::before,.search-item::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   transition: all .7s;
+   transform:translateY(-100%);
+   background-color: var(--contentbefore);
+ }
+.showcase-box .content,.latest-box .content,.movie-boxs .content,.top-rated-box .content,.showcase-tv-box .content,.latest-tv-box .content,.movie-tv-boxs .content,.top-rated-tv-box .content,.search-item .content{
+   position: absolute;
+   top:0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
+   transform: translateY(-100%);
+   transition: all .7s;
+   color: #fff;
+   letter-spacing: 1px;
+   filter: contrast(1.2);
+   font-size: 1.5rem;
+   text-align: center;
+   font-weight: 900;
+   background-color:var(--contentbg);
+}
+
+.showcase-box:hover::before ,.latest-box:hover::before,.movie-boxs:hover::before,.top-rated-box:hover::before ,.showcase-tv-box:hover::before ,.latest-tv-box:hover::before,.movie-tv-boxs:hover::before,.top-rated-tv-box:hover::before,.search-item:hover::before{
+   transform: translateY(95%);
+ }
+ .showcase-box:hover .content,.latest-box:hover .content,.movie-boxs:hover .content,.top-rated-box:hover .content, .showcase-tv-box:hover .content,.latest-tv-box:hover .content,.movie-tv-boxs:hover .content,.top-rated-tv-box:hover .content,.search-item:hover .content{
+   transform: none;
+ }
+ 
+ 
+#latest{
+   border-top: 1px solid rgba(53,53,53,0.1);
+
+}
+#latest h2{
+   margin: 30px 30px 0 30px;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+   font-size: 1.3rem;
+   color: var(--heading);
+}
+#autoWidth2 ,#autoWidth3,#autoWidth4{
+   margin: 0 10px;
+}
+.latest-box,.movie-boxs,.top-rated-box,.latest-tv-box,.movie-tv-boxs,.top-rated-tv-box{
+box-shadow: 2px 2px 30px rgba(0,0,0,.3);
+margin: 20px 10px;
+border-radius: 10px;
+width: 230px;
+height: 300px;
+overflow: hidden;
+position: relative;
+border: 1px solid #252525;
+cursor: pointer;
+}
+.latest-box img,.latest-tv-b-image img ,.movie-boxs img , .top-rated-box img,.latest-tv-box img ,.movie-tv-boxs img , .top-rated-tv-box img{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+}
+
+.movies-heading h2,.tv-heading h2{
+   font-weight: 700;
+   margin: 0;
+   padding: 5px 20px;
+   background-color: rgba(0,0,0,.01);
+   font-size: 1.3rem;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   color: var(--heading);
+}
+.movies-heading,.tv-heading{
+   display: flex;
+   margin: 0 1%;
+}
+
+/* this is top rated movies-----------------*/
+.top-rated-heading{
+   display: flex;
+   margin: 0 1%;
+}
+.top-rated-heading h2,.top-rated-tv-heading h2{
+   font-weight: 700;
+   margin: 0;
+   padding: 5px 20px;
+   background-color: rgba(0,0,0,.01);
+   font-size: 1.3rem;
+   letter-spacing: 2px;
+   color: var(--heading);
+   text-transform: uppercase;
+}
+
+
+
+footer{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   border-top: 1px solid rgba(121, 116, 116, 0.733);
+}
+footer p{
+   color: var(--navlink);
+   margin: 10px 0 ;
+}
+.menu-btn{
+   display: none;
+}
+@media(max-width: 1100px){
+   nav{
+      justify-content: space-between;
+      height: 70px;
+      padding: 0 10px;
+   }
+   nav .menu{
+      display: none;
+      position: absolute;
+      top: 65px;
+      left:0px;
+      background: rgb(24, 23, 23);
+      border-bottom: 4px solid #242424;
+width: 100%;
+padding: 0;
+margin: 0;
+   }
+   nav .menu li{
+      width: 100%;
+   }
+   nav .menu li a{
+width: 100%;
+height: 40px;
+align-items: center;
+margin: 0;
+padding: 25px;
+border: 1px solid rgba(38,38,38,0.03);
+   }
+   nav .menu-icon{
+      cursor: pointer;
+      float: right;
+      padding: 28px 20px;
+      position: relative;
+      user-select: none;
+      display: block;
+   }
+   nav .menu-icon .nav-icon{
+      background-color: #00b0ff;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background 0.2s ease-out;
+      width: 18px;
+
+   }
+   nav .menu-icon .nav-icon::before,
+   nav .menu-icon .nav-icon::after{
+      background: #00b0ff;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all ease-out 0.2s;
+      width: 100%;
+}
+nav .menu-icon .nav-icon::before{
+   top: -5px;
+}
+nav .menu-icon .nav-icon::after{
+   top: 5px;
+}
+nav .menu-btn:checked ~ .menu-icon .nav-icon{
+   background: transparent;
+
+}
+nav .menu-btn:checked ~ .menu-icon .nav-icon::before{
+   transform: rotate(-45deg);
+   top: 0;
+}
+nav .menu-btn:checked ~ .menu-icon .nav-icon::after{
+   transform: rotate(45deg);
+   top:0;
+}
+nav .menu-btn:checked ~ .menu{
+display: block;  
+}
+nav .menu-btn{
+display: none;
+}
+
+
+}
+@media(max-width: 680px){
+   .showcase-box,.showcase-tv-box{
+      max-width: 300px;
+      height: 180px;
+      margin: 10px;
+   }
+   .latest-box,.top-rated-box, .latest-tv-box,.top-rated-tv-box{
+      width: 200px;
+      margin: 20px 5px;
+   }
+   footer{
+      justify-content: space-between;
+      padding: 0 20px;
+      text-align: center;
+   }
+   .movie-boxs,.movie-tv-boxs{
+      width: 180px;
+   }
+}
+@media(max-width: 440px){
+   .logo{
+      height: 30px;
+   }
+   .search{
+      width: 90%;
+      height: 40px;
+   }
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Detail</title>
+   <link rel="shortcut icon" href="./images/favicon-96x96.png">
+
+   <script src="https://kit.fontawesome.com/52d46966b8.js" crossorigin="anonymous"></script>
+
+<style>
+   body{
+      width: 100%;
+      height: 100vh;
+      font-family: 'Source Sans Pro', Arial, sans-serif;;
+      margin:0;
+      padding:0;     
+      box-sizing: border-box;
+      position: relative;
+   }
+   .banner{
+      display: flex;
+      height: 100vh;
+}
+   .poster{
+      display: flex;
+align-content: center;
+align-items: center;
+
+   }
+  .image{
+   height: 450px;
+min-width: 300px;
+width: 300px;
+border-radius: 10px;
+margin: 0 100px;
+  }
+  .image img{ 
+ display: block;
+   width: 100%;
+   height: 100%;
+   min-width: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+   }
+  .banner .content{
+      display: flex;
+      width: 100%;
+   }
+   .poster-content{
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+   }
+   
+  .title h2{
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+      animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+   }
+.title h2:hover {
+  color: orange;
+  animation-name: rubberBand;
+}
+
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.05, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, .95, 1);
+  }
+}
+   .title p{
+      margin: 0;
+     padding: 2px;
+      filter: contrast(.9);
+   }
+   .overview{
+      width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+   }
+   .overview h2{
+      margin-bottom: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+   }
+   .overview p{
+      filter: contrast(.9);
+      line-height: 1.5;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: .95rem;
+margin-right: 5rem;
+overflow-wrap: break-word;
+   }
+   .rating-box{
+      width: 100%;
+      display: flex;
+      align-items: center;
+   }
+   .rating{
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+    
+   }
+   .rating-number{
+      margin-left: 10px;
+      margin-right: 3rem;
+text-align: center;
+line-height: 50px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+font-weight: 800;
+   }
+   .trailer-info{
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      cursor: pointer;
+   }
+   .trailer-info a{
+      text-decoration: none;
+      color: currentColor;
+      transition: all 0.3s;
+   }
+   .trailer-info a:hover{
+transform: scale(1.1);
+      color: orange;
+   }
+   .trailer-info i{
+      padding-right: 5px;
+   }
+ .trailer{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top:50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%,-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.98);
+    visibility: hidden;
+    opacity: 0;
+ }
+ .trailer.active{
+    visibility: visible;
+    opacity: 1;
+ }
+ .trailer iframe{
+    height: 400px;
+width: 530px;
+outline: none;
+ }
+ .close{
+    position: absolute;
+    color: #fff;
+    top: 30px;
+    right: 30px;
+    font-size: 2.5rem;
+    cursor: pointer;
+ }
+ .close-detail{
+position: absolute;
+top: 30px;
+right: 30px;
+font-size: 2rem;
+background: transparent;
+color: #fff;
+border: none;
+outline: none;
+cursor: pointer;
+ }
+
+ @media (max-width: 1000px){
+   .poster .image{
+width: 250px;
+min-width: 250px;
+height: 350px;
+    }
+ }
+ @media (max-width: 900px){
+    .poster .image{
+width: 200px;
+min-width: 200px;
+height: 300px;
+    }
+.title h2{
+   font-size: 2.5rem;
+}
+}
+@media (max-width: 750px) {
+   .banner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .poster-content{
+   text-align: center;
+}
+.title{
+   margin-top: 2rem;
+   text-align: center;
+   width: 100%;
+}
+.title h2{
+   padding: 5px;
+}
+.overview p{
+margin: 10px 2rem;}
+.rating-box{
+   text-align: center;
+   justify-content: center;
+}
+}
+
+
+</style>   
+</head>
+<body class="detail">
+   <button class="close-detail" onclick="window.history.back()">X</button>
+   <div class="bgimage">
+<div class="banner">
+   <div class="poster">
+   <div class="image">
+<img src="" alt="" class="poster-image">
+</div>
+</div>
+   <div class="content">
+      <div class="poster-content">
+      <div class="title">
+      <h2></h2>
+        <p></p>
+      </div>
+         <div class="overview">
+            <h2>Overview</h2>
+            <p></p>
+         </div>
+         <div class="rating-box">
+         <div class="rating">Rating<div class="rating-number"></div></div>
+         <div class="trailer-info" onclick="toggle();"><i class="fas fa-play"></i>Watch Trailer</div>
+      </div>
+      </div>
+   </div>
+</div>
+<div class="trailer">
+   <iframe id="trailer" src="" allowfullscreen frameborder="0" allow="autoplay; encrypted-media"></iframe>
+   <div class="close" onclick="toggle();">X</div>
+</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.min.js"></script>
+   <script>
+
+       let first = sessionStorage.getItem('id');
+const movieurl = 'https://api.themoviedb.org/3/movie/'+first+'?api_key=aed4bea18c4a066c2516bcf8382df39d&language=en-US';
+const tvurl ='https://api.themoviedb.org/3/tv/'+first+'?api_key=aed4bea18c4a066c2516bcf8382df39d&language=en-US';
+const imageapi = 'https://image.tmdb.org/t/p/w500';
+
+const movievideo = 'https://api.themoviedb.org/3/movie/'+first+'/videos?api_key=aed4bea18c4a066c2516bcf8382df39d&language=en-US';
+const tvvideo = 'https://api.themoviedb.org/3/tv/'+first+'/videos?api_key=aed4bea18c4a066c2516bcf8382df39d&language=en-US';
+
+
+
+const bgimage = document.querySelector('.bgimage');
+const posterimage = document.querySelector('.poster-image');
+const title = document.querySelector('.title h2');
+const gener = document.querySelector('.title p');
+const overview = document.querySelector('.overview p');
+const ratingNumber = document.querySelector('.rating-number');
+const iframe = document.getElementById('trailer');
+const banner = document.querySelector('.banner');
+const trailers = document.querySelector('.trailer');
+getmovieInfo();
+
+async function getmovieInfo(){
+   try{
+let movie = await data(movieurl,movievideo)
+
+   }
+  catch(e){
+     console.log(e);
+  } 
+  
+}
+
+gettvInfo();
+async function gettvInfo(){
+   try{
+      let movie = await data(tvurl,tvvideo)
+   }
+  catch(e){
+     console.log(e);
+  } 
+}
+
+async function data(url,vurl){
+   let movieinfo= await fetch(url).then(res=> res.json());
+let geners = movieinfo.genres;
+for(let i=0; i<geners.length;i++){
+gener.textContent = geners[i].name + ' ';
+} 
+overview.textContent = movieinfo.overview;
+ratingNumber.textContent = movieinfo.vote_average;
+
+let imagedata = `${movieinfo.backdrop_path}`;
+let imagedataurl = 'https://image.tmdb.org/t/p/w500'+imagedata;
+bgimage.setAttribute('style',`background-image: url(${imagedataurl});background-size:cover;background-position:right -200px top;background-repeat: no-repeat;overflow: hidden`);
+posterimage.src = imageapi+`${movieinfo.poster_path}`;
+title.textContent = movieinfo.title;
+if(!movieinfo.title){
+   title.textContent = movieinfo.name;
+}
+let video =await fetch(vurl).then(res => res.json())
+.then(val => {
+   val.results.forEach(element => {
+      if(element.type === 'Trailer'){
+       let key = element.key;
+       const youtubeurl = 'https://www.youtube-nocookie.com/embed/'+key+'?autoplay=0&rel=0&modestbranding=1&showinfo=0';
+         iframe.setAttribute('src',`${youtubeurl}`);
+      }
+   });
+});
+}
+
+function toggle(){
+   trailers.classList.toggle('active');
+if(!trailers.classList.contains('active')){
+          iframe.setAttribute('src',`${youtubeurl}`);
+      }
+ 
+}
+
+colordata();
+function colordata(){
+   const colorThief = new ColorThief();
+   posterimage.addEventListener('load', function() {
+ var colors =  colorThief.getColor(posterimage);
+ 
+  banner.style.backgroundImage=   `linear-gradient(to right,rgba(${colors},1)150px,rgba(${colors},0.5))`;
+  let color1 = colors;
+  colorIsLight(color1[0],color1[1],color1[2]);
+});
+posterimage.setAttribute('crossorigin','Anonymous');
+}
+
+var colorIsLight = function(r,g,b){
+  var a =1- (0.299 *r +0.587 * g + 0.114*b) /255;
+  let detail = document.querySelector('.detail');
+  let anchor = document.querySelector('a');
+   (a < .5) ? detail.style.color = '#000' : detail.style.color = '#fff'
+}
+
+
+
+   </script>
+
+</body>
+</html>
